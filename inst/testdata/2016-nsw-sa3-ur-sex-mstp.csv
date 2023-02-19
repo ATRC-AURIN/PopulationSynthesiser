@@ -1,0 +1,81 @@
+Australian Bureau of Statistics
+
+"2016 Census - Counting Persons, Place of Usual Residence (MB)"
+"SA3 (UR) by SEXP Sex by MSTP Registered Marital Status"
+"Counting: Persons Place of Usual Residence"
+
+Filters:
+"Default Summation","Persons Place of Usual Residence"
+
+"Counting","SA3 (UR)","SEXP Sex","MSTP Registered Marital Status","Count",
+"Persons Place of Usual Residence","11801","Male","Never married",23793
+"Persons Place of Usual Residence","11801","Male","Widowed",802
+"Persons Place of Usual Residence","11801","Male","Divorced",3260
+"Persons Place of Usual Residence","11801","Male","Separated",1003
+"Persons Place of Usual Residence","11801","Male","Married",21399
+"Persons Place of Usual Residence","11801","Male","Not applicable",10078
+"Persons Place of Usual Residence","11801","Male","Total",60330
+"Persons Place of Usual Residence","11801","Female","Never married",24499
+"Persons Place of Usual Residence","11801","Female","Widowed",3797
+"Persons Place of Usual Residence","11801","Female","Divorced",5172
+"Persons Place of Usual Residence","11801","Female","Separated",1154
+"Persons Place of Usual Residence","11801","Female","Married",21718
+"Persons Place of Usual Residence","11801","Female","Not applicable",9709
+"Persons Place of Usual Residence","11801","Female","Total",66055
+"Persons Place of Usual Residence","11801","Total","Never married",48292
+"Persons Place of Usual Residence","11801","Total","Widowed",4601
+"Persons Place of Usual Residence","11801","Total","Divorced",8431
+"Persons Place of Usual Residence","11801","Total","Separated",2161
+"Persons Place of Usual Residence","11801","Total","Married",43115
+"Persons Place of Usual Residence","11801","Total","Not applicable",19789
+"Persons Place of Usual Residence","11801","Total","Total",126382
+"Persons Place of Usual Residence","11802","Male","Never married",29804
+"Persons Place of Usual Residence","11802","Male","Widowed",934
+"Persons Place of Usual Residence","11802","Male","Divorced",3275
+"Persons Place of Usual Residence","11802","Male","Separated",1232
+"Persons Place of Usual Residence","11802","Male","Married",23248
+"Persons Place of Usual Residence","11802","Male","Not applicable",10680
+"Persons Place of Usual Residence","11802","Male","Total",69177
+"Persons Place of Usual Residence","11802","Female","Never married",28023
+"Persons Place of Usual Residence","11802","Female","Widowed",4039
+"Persons Place of Usual Residence","11802","Female","Divorced",4890
+"Persons Place of Usual Residence","11802","Female","Separated",1461
+"Persons Place of Usual Residence","11802","Female","Married",22789
+"Persons Place of Usual Residence","11802","Female","Not applicable",10284
+"Persons Place of Usual Residence","11802","Female","Total",71474
+"Persons Place of Usual Residence","11802","Total","Never married",57827
+"Persons Place of Usual Residence","11802","Total","Widowed",4969
+"Persons Place of Usual Residence","11802","Total","Divorced",8165
+"Persons Place of Usual Residence","11802","Total","Separated",2697
+"Persons Place of Usual Residence","11802","Total","Married",46037
+"Persons Place of Usual Residence","11802","Total","Not applicable",20960
+"Persons Place of Usual Residence","11802","Total","Total",140651
+"Persons Place of Usual Residence","Total","Male","Never married",53600
+"Persons Place of Usual Residence","Total","Male","Widowed",1735
+"Persons Place of Usual Residence","Total","Male","Divorced",6529
+"Persons Place of Usual Residence","Total","Male","Separated",2235
+"Persons Place of Usual Residence","Total","Male","Married",44651
+"Persons Place of Usual Residence","Total","Male","Not applicable",20755
+"Persons Place of Usual Residence","Total","Male","Total",129507
+"Persons Place of Usual Residence","Total","Female","Never married",52518
+"Persons Place of Usual Residence","Total","Female","Widowed",7835
+"Persons Place of Usual Residence","Total","Female","Divorced",10063
+"Persons Place of Usual Residence","Total","Female","Separated",2617
+"Persons Place of Usual Residence","Total","Female","Married",44505
+"Persons Place of Usual Residence","Total","Female","Not applicable",19990
+"Persons Place of Usual Residence","Total","Female","Total",137529
+"Persons Place of Usual Residence","Total","Total","Never married",106116
+"Persons Place of Usual Residence","Total","Total","Widowed",9572
+"Persons Place of Usual Residence","Total","Total","Divorced",16591
+"Persons Place of Usual Residence","Total","Total","Separated",4850
+"Persons Place of Usual Residence","Total","Total","Married",89150
+"Persons Place of Usual Residence","Total","Total","Not applicable",40752
+"Persons Place of Usual Residence","Total","Total","Total",267031
+
+"Data Source: Census of Population and Housing, 2016, TableBuilder"
+
+"INFO","Cells in this table have been randomly adjusted to avoid the release of confidential data. No reliance should be placed on small cells."
+
+
+"Copyright Commonwealth of Australia, 2018, see abs.gov.au/copyright"
+"ABS data licensed under Creative Commons, see abs.gov.au/ccby"

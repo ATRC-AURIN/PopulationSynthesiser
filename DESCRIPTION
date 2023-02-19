@@ -1,0 +1,55 @@
+Package: PopulationSynthesiser
+Title: A Synthetic Population Generator for Australian Census Data
+Version: 0.2.2.9001
+Authors@R: c(
+    person(given = "Amarin",
+           family = "Siripanich",
+           role = c("aut", "cre"),
+           email = "a.siripanich@unsw.edu.au",
+           comment = c(ORCID = "0000-0002-9140-4865")),
+    person(given = "Taha",
+           family = "Rashidi",
+           role = c("aut"),
+           email = "rashidi@unsw.edu.au",
+           comment = c(ORCID = "0000-0002-0673-5011")),
+    person(given = "Australian Urban Research Infrastructure Network (AURIN)",
+           role = c("fnd")))
+Description: |
+    This packge contains implementations of population synthesiser approaches
+    and utility functions for using Australian census data.
+License: GPL (>= 3)
+Encoding: UTF-8
+LazyData: true
+URL: https://github.com/AURIN-OFFICE/RCITI_PopulationSynthesiser
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0),
+    here,
+    covr,
+    knitr,
+    rmarkdown,
+    readxl,
+    janitor,
+    sf,
+    mapview
+Imports: 
+    data.table,
+    magrittr,
+    checkmate,
+    R6,
+    glue,
+    mlfit,
+    stats,
+    cli,
+    stringi,
+    fs,
+    purrr,
+    yaml
+Remotes:
+    mlfit/mlfit
+Config/testthat/edition: 3
+Config/testthat/parallel: true
+Depends: 
+    R (>= 2.10)
+VignetteBuilder: knitr

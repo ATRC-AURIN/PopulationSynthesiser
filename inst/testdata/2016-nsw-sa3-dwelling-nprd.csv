@@ -1,0 +1,42 @@
+Australian Bureau of Statistics
+
+"2016 Census - Counting Dwellings, Place of Enumeration (MB)"
+"SA3 by NPRD Number of Persons Usually Resident in Dwelling"
+"Counting: Dwellings Location on Census Night"
+
+Filters:
+"Default Summation","Dwellings Location on Census Night"
+
+"Counting","SA3","NPRD Number of Persons Usually Resident in Dwelling","Count",
+"Dwellings Location on Census Night","11801","One person",14082
+"Dwellings Location on Census Night","11801","Three persons",7500
+"Dwellings Location on Census Night","11801","Two persons",17536
+"Dwellings Location on Census Night","11801","Four persons",6292
+"Dwellings Location on Census Night","11801","Five persons",2328
+"Dwellings Location on Census Night","11801","Six persons",537
+"Dwellings Location on Census Night","11801","Not applicable",12105
+"Dwellings Location on Census Night","11801","Total",60385
+"Dwellings Location on Census Night","11802","One person",13098
+"Dwellings Location on Census Night","11802","Three persons",8746
+"Dwellings Location on Census Night","11802","Two persons",16629
+"Dwellings Location on Census Night","11802","Four persons",7901
+"Dwellings Location on Census Night","11802","Five persons",2862
+"Dwellings Location on Census Night","11802","Six persons",790
+"Dwellings Location on Census Night","11802","Not applicable",8328
+"Dwellings Location on Census Night","11802","Total",58355
+"Dwellings Location on Census Night","Total","One person",27175
+"Dwellings Location on Census Night","Total","Three persons",16245
+"Dwellings Location on Census Night","Total","Two persons",34164
+"Dwellings Location on Census Night","Total","Four persons",14190
+"Dwellings Location on Census Night","Total","Five persons",5191
+"Dwellings Location on Census Night","Total","Six persons",1332
+"Dwellings Location on Census Night","Total","Not applicable",20433
+"Dwellings Location on Census Night","Total","Total",118740
+
+"Data Source: Census of Population and Housing, 2016, TableBuilder"
+
+"INFO","Cells in this table have been randomly adjusted to avoid the release of confidential data. No reliance should be placed on small cells."
+
+
+"Copyright Commonwealth of Australia, 2018, see abs.gov.au/copyright"
+"ABS data licensed under Creative Commons, see abs.gov.au/ccby"

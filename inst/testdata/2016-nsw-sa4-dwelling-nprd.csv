@@ -1,0 +1,34 @@
+Australian Bureau of Statistics
+
+"2016 Census - Counting Dwellings, Place of Enumeration (MB)"
+"SA4 by NPRD Number of Persons Usually Resident in Dwelling"
+"Counting: Dwellings Location on Census Night"
+
+Filters:
+"Default Summation","Dwellings Location on Census Night"
+
+"Counting","SA4","NPRD Number of Persons Usually Resident in Dwelling","Count",
+"Dwellings Location on Census Night","118","One person",27175
+"Dwellings Location on Census Night","118","Three persons",16245
+"Dwellings Location on Census Night","118","Two persons",34164
+"Dwellings Location on Census Night","118","Four persons",14190
+"Dwellings Location on Census Night","118","Five persons",5191
+"Dwellings Location on Census Night","118","Six persons",1332
+"Dwellings Location on Census Night","118","Not applicable",20433
+"Dwellings Location on Census Night","118","Total",118740
+"Dwellings Location on Census Night","Total","One person",27175
+"Dwellings Location on Census Night","Total","Three persons",16245
+"Dwellings Location on Census Night","Total","Two persons",34164
+"Dwellings Location on Census Night","Total","Four persons",14190
+"Dwellings Location on Census Night","Total","Five persons",5191
+"Dwellings Location on Census Night","Total","Six persons",1332
+"Dwellings Location on Census Night","Total","Not applicable",20433
+"Dwellings Location on Census Night","Total","Total",118740
+
+"Data Source: Census of Population and Housing, 2016, TableBuilder"
+
+"INFO","Cells in this table have been randomly adjusted to avoid the release of confidential data. No reliance should be placed on small cells."
+
+
+"Copyright Commonwealth of Australia, 2018, see abs.gov.au/copyright"
+"ABS data licensed under Creative Commons, see abs.gov.au/ccby"

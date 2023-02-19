@@ -1,0 +1,42 @@
+Australian Bureau of Statistics
+
+"2016 Census - Counting Persons, Place of Usual Residence (MB)"
+"SA4 (UR) by OCCP - 1 Digit Level"
+"Counting: Persons Place of Usual Residence"
+
+Filters:
+"Default Summation","Persons Place of Usual Residence"
+
+"Counting","SA4 (UR)","OCCP - 1 Digit Level","Count",
+"Persons Place of Usual Residence","118","Managers",24778
+"Persons Place of Usual Residence","118","Professionals",51162
+"Persons Place of Usual Residence","118","Technicians and Trades Workers",10238
+"Persons Place of Usual Residence","118","Community and Personal Service Workers",11935
+"Persons Place of Usual Residence","118","Clerical and Administrative Workers",16609
+"Persons Place of Usual Residence","118","Sales Workers",10900
+"Persons Place of Usual Residence","118","Machinery Operators and Drivers",2682
+"Persons Place of Usual Residence","118","Labourers",5213
+"Persons Place of Usual Residence","118","Inadequately described",1522
+"Persons Place of Usual Residence","118","Not stated",837
+"Persons Place of Usual Residence","118","Not applicable",131150
+"Persons Place of Usual Residence","118","Total",267031
+"Persons Place of Usual Residence","Total","Managers",24778
+"Persons Place of Usual Residence","Total","Professionals",51162
+"Persons Place of Usual Residence","Total","Technicians and Trades Workers",10238
+"Persons Place of Usual Residence","Total","Community and Personal Service Workers",11935
+"Persons Place of Usual Residence","Total","Clerical and Administrative Workers",16609
+"Persons Place of Usual Residence","Total","Sales Workers",10900
+"Persons Place of Usual Residence","Total","Machinery Operators and Drivers",2682
+"Persons Place of Usual Residence","Total","Labourers",5213
+"Persons Place of Usual Residence","Total","Inadequately described",1522
+"Persons Place of Usual Residence","Total","Not stated",837
+"Persons Place of Usual Residence","Total","Not applicable",131150
+"Persons Place of Usual Residence","Total","Total",267031
+
+"Data Source: Census of Population and Housing, 2016, TableBuilder"
+
+"INFO","Cells in this table have been randomly adjusted to avoid the release of confidential data. No reliance should be placed on small cells."
+
+
+"Copyright Commonwealth of Australia, 2018, see abs.gov.au/copyright"
+"ABS data licensed under Creative Commons, see abs.gov.au/ccby"

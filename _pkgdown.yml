@@ -1,0 +1,32 @@
+url: ~
+template:
+  bootstrap: 5
+
+reference:
+- title: "Pre fitting"
+  desc: "Helper functions for preparing a seed population and control tables from ABS databases."
+  contents:
+  - read_census_microdata
+  - read_census_tablebuilder
+  - load_abs_shp
+  - starts_with("create")
+  - starts_with("prefit")
+  - csf_geo
+- title: "Data dictionary"
+  desc: ""
+  contents:
+  - ends_with("dictionary")
+  - vista1218web
+- title: "Recode"
+  desc: "Functions for recoding Census Sample File variables to VISTA."
+  contents:
+  - starts_with("recode_cvista")
+  - make_recode_cvista
+- title: "Post fitting"
+  desc: "Functions for post fitting."
+  contents:
+  - starts_with("postfit")
+  - morph_cvista
+- title: "Workflow"
+  contents:
+  - run_workflow
