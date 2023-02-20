@@ -19,14 +19,14 @@
 #' inputs:
 #'   REFERENCE_SAMPLE:
 #'     type: path
-#'     path: /atrc_data/inputs/reference_sample.csv
+#'     value: /atrc_data/inputs/reference_sample.csv
 #'   PERSONS_CONTROL:
 #'     type: multiple_paths
-#'     path:
+#'     value:
 #'       - /atrc_data/inputs/persons-control1.csv
 #'   HOUSEHOLDS_CONTROL:
 #'     type: multiple_paths
-#'     path:
+#'     value:
 #'       - /atrc_data/inputs/households-control1.csv
 #'   GROUP_ID:
 #'     type: value
@@ -46,7 +46,7 @@
 #' outputs:
 #'   SYNTHETIC_POPULATION:
 #'     type: csv
-#'     path: /atrc_data/outputs/synthetic_population.csv
+#'     value: /atrc_data/outputs/synthetic_population.csv
 #' ```
 #'
 #' @export
@@ -56,7 +56,7 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     yaml::read_yaml()
 
   cli::cli_progress_step("Checking the reference sample.")
-  ref_sample <- checkmate::assert_file_exists(config$inputs$REFERENCE_SAMPLE$path) %>%
+  ref_sample <- checkmate::assert_file_exists(config$inputs$REFERENCE_SAMPLE$value) %>%
     read.csv()
 
   cli::cli_progress_step("Checking the control files.")
@@ -90,8 +90,8 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
   )
 
   cli::cli_progress_step("Writing the synthetic population to a CSV file.")
-  checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$path))
-  write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$path)
+  checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$value))
+  write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$value)
 
   cli::cli_progress_step("Returning the results.")
   invisible(list(
