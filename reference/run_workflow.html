@@ -86,37 +86,37 @@ See the Details section below for the expected format.</p></dd>
     <div class="section level2">
     <h2 id="details">Details<a class="anchor" aria-label="anchor" href="#details"></a></h2>
     <p>Here is the expected format of a config file.</p>
-<p></p><div class="sourceCode yaml"><pre><code><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">inputs</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2"></a><span class="at">  </span><span class="fu">REFERENCE_SAMPLE</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> path</span></span>
-<span id="cb1-4"><a href="#cb1-4"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> /atrc_data/inputs/reference_sample.csv</span></span>
-<span id="cb1-5"><a href="#cb1-5"></a><span class="at">  </span><span class="fu">PERSONS_CONTROL</span><span class="kw">:</span></span>
-<span id="cb1-6"><a href="#cb1-6"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> multiple_paths</span></span>
-<span id="cb1-7"><a href="#cb1-7"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span></span>
-<span id="cb1-8"><a href="#cb1-8"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /atrc_data/inputs/persons-control1.csv</span></span>
-<span id="cb1-9"><a href="#cb1-9"></a><span class="at">  </span><span class="fu">HOUSEHOLDS_CONTROL</span><span class="kw">:</span></span>
-<span id="cb1-10"><a href="#cb1-10"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> multiple_paths</span></span>
-<span id="cb1-11"><a href="#cb1-11"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span></span>
-<span id="cb1-12"><a href="#cb1-12"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /atrc_data/inputs/households-control1.csv</span></span>
-<span id="cb1-13"><a href="#cb1-13"></a><span class="at">  </span><span class="fu">GROUP_ID</span><span class="kw">:</span></span>
-<span id="cb1-14"><a href="#cb1-14"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-15"><a href="#cb1-15"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"hhid"</span></span>
-<span id="cb1-16"><a href="#cb1-16"></a><span class="at">  </span><span class="fu">INDIVIDUAL_ID</span><span class="kw">:</span></span>
-<span id="cb1-17"><a href="#cb1-17"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-18"><a href="#cb1-18"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"persid"</span></span>
-<span id="cb1-19"><a href="#cb1-19"></a><span class="at">  </span><span class="fu">COUNT</span><span class="kw">:</span></span>
-<span id="cb1-20"><a href="#cb1-20"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-21"><a href="#cb1-21"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"n"</span></span>
-<span id="cb1-22"><a href="#cb1-22"></a><span class="at">  </span><span class="fu">ML_FIT_ALGORITHM</span><span class="kw">:</span></span>
-<span id="cb1-23"><a href="#cb1-23"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-24"><a href="#cb1-24"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"ipu"</span></span>
-<span id="cb1-25"><a href="#cb1-25"></a><span class="at">  </span><span class="fu">ML_REPLICATE_ALGORITHM</span><span class="kw">:</span></span>
-<span id="cb1-26"><a href="#cb1-26"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
-<span id="cb1-27"><a href="#cb1-27"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"trs"</span></span>
-<span id="cb1-28"><a href="#cb1-28"></a><span class="fu">outputs</span><span class="kw">:</span></span>
-<span id="cb1-29"><a href="#cb1-29"></a><span class="at">  </span><span class="fu">SYNTHETIC_POPULATION</span><span class="kw">:</span></span>
-<span id="cb1-30"><a href="#cb1-30"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> csv</span></span>
-<span id="cb1-31"><a href="#cb1-31"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> /atrc_data/outputs/synthetic_population.csv</span></span></code></pre><p></p></div>
+<p></p><div class="sourceCode yaml"><pre><code><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">inputs</span><span class="kw">:</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">REFERENCE_SAMPLE</span><span class="kw">:</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> path</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> /atrc_data/inputs/reference_sample.csv</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">PERSONS_CONTROL</span><span class="kw">:</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> multiple_paths</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /atrc_data/inputs/persons-control1.csv</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">HOUSEHOLDS_CONTROL</span><span class="kw">:</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> multiple_paths</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> /atrc_data/inputs/households-control1.csv</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">GROUP_ID</span><span class="kw">:</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"hhid"</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">INDIVIDUAL_ID</span><span class="kw">:</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"persid"</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">COUNT</span><span class="kw">:</span></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"n"</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">ML_FIT_ALGORITHM</span><span class="kw">:</span></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"ipu"</span></span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">ML_REPLICATE_ALGORITHM</span><span class="kw">:</span></span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> value</span></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">value</span><span class="kw">:</span><span class="at"> </span><span class="st">"trs"</span></span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="fu">outputs</span><span class="kw">:</span></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">SYNTHETIC_POPULATION</span><span class="kw">:</span></span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">type</span><span class="kw">:</span><span class="at"> csv</span></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">path</span><span class="kw">:</span><span class="at"> /atrc_data/outputs/synthetic_population.csv</span></span></code></pre><p></p></div>
     </div>
 
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>

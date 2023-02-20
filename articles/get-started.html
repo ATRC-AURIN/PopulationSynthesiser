@@ -69,7 +69,8 @@
 
 
 
-<script src="get-started_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Get Started</h1>
             
@@ -80,11 +81,23 @@
 
     
     
-<p>In this article, we’re going to show you how to pre-process your microdata and control tables using the {PopulationSynthesiser} package, then use the <code>mlfit</code> package generate synthetic population data. We’ll use the Australian Census 2016 data as an example. After we have generated the synthetic population, we’ll use the <code>postfit_*</code> functions to convert the synthetic population into a format that can be used by <a href="https://aurin-office.github.io/RCITI_ActivityGenerator/" class="external-link">ActivityGenerator</a>. We refer to this format the ‘CVISTA’ format, which stands for ‘Close-enough to VISTA’.</p>
+<p>In this article, we’re going to show you how to pre-process your
+microdata and control tables using the {PopulationSynthesiser} package,
+then use the <code>mlfit</code> package generate synthetic population
+data. We’ll use the Australian Census 2016 data as an example. After we
+have generated the synthetic population, we’ll use the
+<code>postfit_*</code> functions to convert the synthetic population
+into a format that can be used by <a href="https://aurin-office.github.io/RCITI_ActivityGenerator/" class="external-link">ActivityGenerator</a>.
+We refer to this format the ‘CVISTA’ format, which stands for
+‘Close-enough to VISTA’.</p>
 <div class="section level2">
 <h2 id="before-we-get-started">Before we get started!<a class="anchor" aria-label="anchor" href="#before-we-get-started"></a>
 </h2>
-<p>In the following example, we will be using a few other R packages wasn’t shipped with your R program, they provide useful functions for transforming and visualising data. So make sure you have installed all these following packages using <code>install.packages("&lt;packge-name&gt;")</code>.</p>
+<p>In the following example, we will be using a few other R packages
+wasn’t shipped with your R program, they provide useful functions for
+transforming and visualising data. So make sure you have installed all
+these following packages using
+<code>install.packages("&lt;packge-name&gt;")</code>.</p>
 <ul>
 <li>
 <code>dplyr</code> for summarising data in a data.frame.</li>
@@ -93,12 +106,25 @@
 <li>
 <code>mapview</code> for plotting spatial data.</li>
 </ul>
-<p>and of course we will need this package, <code>PopulationSynthesiser</code> as well. However, installing this is a bit different as the package is not yet officially on CRAN. Please follow the ‘Installation’ section on the README page to install the package.</p>
+<p>and of course we will need this package,
+<code>PopulationSynthesiser</code> as well. However, installing this is
+a bit different as the package is not yet officially on CRAN. Please
+follow the ‘Installation’ section on the README page to install the
+package.</p>
 </div>
 <div class="section level2">
 <h2 id="loading-the-datasets-into-r">Loading the datasets into R<a class="anchor" aria-label="anchor" href="#loading-the-datasets-into-r"></a>
 </h2>
-<p>We should now have 2 person control tables, 1 household control table, and 1 microdata. Let’s import all of them into R. We can use these functions to read them into R. Notice that, in <code><a href="../reference/read_census_microdata.html">read_census_microdata()</a></code> you have to state the <code>census_year</code> of your microdata and the names of the columns that you would like to select in <code>select</code>. <code>census_year</code> helps the package to correctly identify the geographical boundary variables in the microdata. <code>select</code> is optional, but when stated it can help to reduce the time it takes to import the microdata.</p>
+<p>We should now have 2 person control tables, 1 household control
+table, and 1 microdata. Let’s import all of them into R. We can use
+these functions to read them into R. Notice that, in
+<code><a href="../reference/read_census_microdata.html">read_census_microdata()</a></code> you have to state the
+<code>census_year</code> of your microdata and the names of the columns
+that you would like to select in <code>select</code>.
+<code>census_year</code> helps the package to correctly identify the
+geographical boundary variables in the microdata. <code>select</code> is
+optional, but when stated it can help to reduce the time it takes to
+import the microdata.</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AURIN-OFFICE/RCITI_PopulationSynthesiser" class="external-link">PopulationSynthesiser</a></span><span class="op">)</span></span>
 <span><span class="va">microdata</span> <span class="op">&lt;-</span></span>
@@ -122,7 +148,9 @@
 <span><span class="va">household_control_1</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="../reference/read_census_tablebuilder.html">read_census_tablebuilder</a></span><span class="op">(</span><span class="st">"datasets/household_control_1.csv"</span><span class="op">)</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/create_fitting_control.html">create_fitting_control</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>Here are the datasets that we have just loaded into R. Note that, we are not printing out the microdata as is because no ABS microdata should never be shared in its raw form<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;a href="https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1406.0.55.003~User%20Guide~Main%20Features~Using%20microdata%20responsibly~25" class="external-link uri"&gt;https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1406.0.55.003~User%20Guide~Main%20Features~Using%20microdata%20responsibly~25&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>.</p>
+<p>Here are the datasets that we have just loaded into R. Note that, we
+are not printing out the microdata as is because no ABS microdata should
+never be shared in its raw form<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;&lt;a href="https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1406.0.55.003~User%20Guide~Main%20Features~Using%20microdata%20responsibly~25" class="external-link uri"&gt;https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1406.0.55.003~User%20Guide~Main%20Features~Using%20microdata%20responsibly~25&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span></span>
@@ -191,10 +219,16 @@
 <div class="section level2">
 <h2 id="synthesise-the-population">Synthesise the population<a class="anchor" aria-label="anchor" href="#synthesise-the-population"></a>
 </h2>
-<p>We are now going to create fitting problems, one for each zone. This will help us to sample only the records in the microdata that geographically match our control totals’ zones.</p>
-<p>For example, if our microdata contains people from four different zones as shown in the image below.</p>
+<p>We are now going to create fitting problems, one for each zone. This
+will help us to sample only the records in the microdata that
+geographically match our control totals’ zones.</p>
+<p>For example, if our microdata contains people from four different
+zones as shown in the image below.</p>
 <p><img src="../reference/figures/fitting_problem-sampling-1.png"></p>
-<p>But our fitting problem is only for a zone (the orange patch) in one of those regions. In this case, each fitting problem will only sample people from the region that contains the zone to be in the reference sample of the fitting problem.</p>
+<p>But our fitting problem is only for a zone (the orange patch) in one
+of those regions. In this case, each fitting problem will only sample
+people from the region that contains the zone to be in the reference
+sample of the fitting problem.</p>
 <p><img src="../reference/figures/fitting_problem-sampling-2.png"></p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://mlfit.github.io/mlfit/" class="external-link">mlfit</a></span><span class="op">)</span></span>
@@ -224,8 +258,16 @@
 <span></span>
 <span><span class="va">ml_problem</span> <span class="op">&lt;-</span> <span class="va">fitting_problems</span><span class="op">[[</span><span class="st">"118021569"</span><span class="op">]</span><span class="op">]</span> <span class="op"><a href="../reference/pipe.html">%&gt;%</a></span></span>
 <span>  <span class="fu"><a href="../reference/prefit_csf_agep_to_age5p.html">prefit_csf_agep_to_age5p</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>To solve our fitting problem we can use <code><a href="https://mlfit.github.io/mlfit/reference/ml_fit.html" class="external-link">ml_fit()</a></code> from the <code>mlfit</code> package. This package provides 4 different multi-level fitting algorithms: entropy_o, dss, ipu, hipf. See <code><a href="https://mlfit.github.io/mlfit/reference/ml_fit.html" class="external-link">?mlfit::ml_fit</a></code> to learn more about the algorithms. Here we are going to use the famous Iterative Proportion Updating algorithm (<code>ipu</code>) to solve our fitting problem.</p>
-<p>Although, the algorithm did not reach a convergence for this fitting problem, but the errors are quite small. Priting out <code>fitting_result</code> to console provides some useful results of your fitting problem.</p>
+<p>To solve our fitting problem we can use <code><a href="https://mlfit.github.io/mlfit/reference/ml_fit.html" class="external-link">ml_fit()</a></code> from
+the <code>mlfit</code> package. This package provides 4 different
+multi-level fitting algorithms: entropy_o, dss, ipu, hipf. See
+<code><a href="https://mlfit.github.io/mlfit/reference/ml_fit.html" class="external-link">?mlfit::ml_fit</a></code> to learn more about the algorithms. Here we
+are going to use the famous Iterative Proportion Updating algorithm
+(<code>ipu</code>) to solve our fitting problem.</p>
+<p>Although, the algorithm did not reach a convergence for this fitting
+problem, but the errors are quite small. Priting out
+<code>fitting_result</code> to console provides some useful results of
+your fitting problem.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">fitting_result</span> <span class="op">&lt;-</span> <span class="fu">mlfit</span><span class="fu">::</span><span class="fu"><a href="https://mlfit.github.io/mlfit/reference/ml_fit.html" class="external-link">ml_fit</a></span><span class="op">(</span>algorithm <span class="op">=</span> <span class="st">"ipu"</span>, <span class="va">ml_problem</span><span class="op">)</span></span>
 <span><span class="va">fitting_result</span></span>
@@ -242,7 +284,11 @@
 <span><span class="co">#&gt;       Reference sample: 2639 observations</span></span>
 <span><span class="co">#&gt;       Control totals: 2 at individual, and 1 at group level</span></span>
 <span><span class="co">#&gt;       Zone: 118021569</span></span></code></pre></div>
-<p>Now let’s replicate each record in the reference sample by its fitted/calibrated weights. You can use <code><a href="https://mlfit.github.io/mlfit/reference/ml_replicate.html" class="external-link">mlfit::ml_replicate()</a></code> to do that. Lookup <code><a href="https://mlfit.github.io/mlfit/reference/ml_replicate.html" class="external-link">?mlfit::ml_replicate</a></code> to see the definitions of its arguments.</p>
+<p>Now let’s replicate each record in the reference sample by its
+fitted/calibrated weights. You can use
+<code><a href="https://mlfit.github.io/mlfit/reference/ml_replicate.html" class="external-link">mlfit::ml_replicate()</a></code> to do that. Lookup
+<code><a href="https://mlfit.github.io/mlfit/reference/ml_replicate.html" class="external-link">?mlfit::ml_replicate</a></code> to see the definitions of its
+arguments.</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">full_population</span> <span class="op">&lt;-</span></span>
 <span>  <span class="fu"><a href="https://mlfit.github.io/mlfit/reference/ml_replicate.html" class="external-link">ml_replicate</a></span><span class="op">(</span><span class="va">fitting_result</span>, algorithm <span class="op">=</span> <span class="st">"trs"</span><span class="op">)</span></span>
@@ -288,7 +334,10 @@
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">person_control_1</span><span class="op">$</span><span class="va">count</span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1] 16866</span></span></code></pre></div>
-<p>Our fitting problem only has 2639 rows in its reference sample. But once we replicate them, we will have 16870 rows which should closely matched our control totals, as shown by the output of <code>dim(full_population)</code>.</p>
+<p>Our fitting problem only has 2639 rows in its reference sample. But
+once we replicate them, we will have 16870 rows which should closely
+matched our control totals, as shown by the output of
+<code>dim(full_population)</code>.</p>
 </div>
 <div class="section level2">
 <h2 id="post-processing">Post processing<a class="anchor" aria-label="anchor" href="#post-processing"></a>

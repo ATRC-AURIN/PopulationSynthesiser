@@ -69,7 +69,8 @@
 
 
 
-<script src="data-preparation_files/accessible-code-block-0.0.1/empty-anchor.js"></script><div class="row">
+
+<div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
       <img src="" class="logo" alt=""><h1>Data Preparation</h1>
             
@@ -82,7 +83,13 @@
     
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/AURIN-OFFICE/RCITI_PopulationSynthesiser" class="external-link">PopulationSynthesiser</a></span><span class="op">)</span></span></code></pre></div>
-<p>This tutorial will teach you how to prepare ABS (Australian Bureau of Statistics) data for creating a synthetic population. It covers the steps to obtain a seed population from the ABS Microdata portal and obtaining individual and household control tables from the ABS TableBuilder portal. The tutorial is accompanied by screenshots to help users navigate through the portals and complete the necessary steps to obtain the required data.</p>
+<p>This tutorial will teach you how to prepare ABS (Australian Bureau of
+Statistics) data for creating a synthetic population. It covers the
+steps to obtain a seed population from the ABS Microdata portal and
+obtaining individual and household control tables from the ABS
+TableBuilder portal. The tutorial is accompanied by screenshots to help
+users navigate through the portals and complete the necessary steps to
+obtain the required data.</p>
 <table class="table">
 <colgroup>
 <col width="20%">
@@ -102,7 +109,8 @@
 </tr>
 <tr class="even">
 <td>Person control 1: SEXP x MSTP</td>
-<td>A person-level control table with gender (SEXP) and marital status (MSTP)</td>
+<td>A person-level control table with gender (SEXP) and marital status
+(MSTP)</td>
 <td><a href="https://www.abs.gov.au/ausstats/abs@.nsf/PrimaryMainFeatures/2073.0?OpenDocument" class="external-link uri">https://www.abs.gov.au/ausstats/abs@.nsf/PrimaryMainFeatures/2073.0?OpenDocument</a></td>
 </tr>
 <tr class="odd">
@@ -112,21 +120,29 @@
 </tr>
 <tr class="even">
 <td>Household control 1: NPRD</td>
-<td>A household-level control table with number of usual residents (NPRD)</td>
+<td>A household-level control table with number of usual residents
+(NPRD)</td>
 <td><a href="https://www.abs.gov.au/ausstats/abs@.nsf/PrimaryMainFeatures/2073.0?OpenDocument" class="external-link uri">https://www.abs.gov.au/ausstats/abs@.nsf/PrimaryMainFeatures/2073.0?OpenDocument</a></td>
 </tr>
 <tr class="odd">
 <td>Statistical Area Level 2 (SA2) 2016 shapefile</td>
-<td>Statistical Area Level 2 (SA2) ASGS Ed 2016 Digital Boundaries in ESRI Shapefile Format</td>
+<td>Statistical Area Level 2 (SA2) ASGS Ed 2016 Digital Boundaries in
+ESRI Shapefile Format</td>
 <td><a href="https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument" class="external-link uri">https://www.abs.gov.au/AUSSTATS/abs@.nsf/DetailsPage/1270.0.55.001July%202016?OpenDocument</a></td>
 </tr>
 </tbody>
 </table>
-<p>There are two main types of inputs required to synthesise a population: microdata and control total. Both of them can be downloaded from <a href="https://www.abs.gov.au/" class="external-link uri">https://www.abs.gov.au/</a>. While they are not publicly available, most Australian universities are subscribed to ABS data services. Hence, it might be a good idea to check with your university librarian before trying to apply for access by yourself.</p>
-<p>In this example, we are going to synthesise the 2016 population of the ‘Randwick - North’ region, New South Wales as defined by <a href="https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Statistical%20Area%20Level%202%20(SA2)~10014" class="external-link">Statistical Areas Level 2 (SA2) 2016</a>.</p>
+<p>There are two main types of inputs required to synthesise a
+population: microdata and control total. Both of them can be downloaded
+from <a href="https://www.abs.gov.au/" class="external-link uri">https://www.abs.gov.au/</a>. While they are not publicly
+available, most Australian universities are subscribed to ABS data
+services. Hence, it might be a good idea to check with your university
+librarian before trying to apply for access by yourself.</p>
+<p>In this example, we are going to synthesise the 2016 population of
+the ‘Randwick - North’ region, New South Wales as defined by <a href="https://www.abs.gov.au/ausstats/abs@.nsf/Lookup/by%20Subject/1270.0.55.001~July%202016~Main%20Features~Statistical%20Area%20Level%202%20(SA2)~10014" class="external-link">Statistical
+Areas Level 2 (SA2) 2016</a>.</p>
 <pre><code><span><span class="co">#&gt; Reading layer `SA2_2016_AUST' from data source </span></span>
-<span><span class="co">#&gt;   `/private/var/folders/24/8k48jl6d249_n_qfxwsl6xvm0000gn/T/RtmpVXqfUS/file143069e33929/SA2_2016_AUST.shp' </span></span>
-<span><span class="co">#&gt;   using driver `ESRI Shapefile'</span></span>
+<span><span class="co">#&gt;   `/tmp/RtmpUKpCBY/file1de12f6cce4f/SA2_2016_AUST.shp' using driver `ESRI Shapefile'</span></span>
 <span><span class="co">#&gt; Simple feature collection with 2310 features and 12 fields (with 18 geometries empty)</span></span>
 <span><span class="co">#&gt; Geometry type: MULTIPOLYGON</span></span>
 <span><span class="co">#&gt; Dimension:     XY</span></span>
@@ -137,20 +153,29 @@
 <h2 id="prepare-microdataseed-population">Prepare microdata/seed population<a class="anchor" aria-label="anchor" href="#prepare-microdataseed-population"></a>
 </h2>
 <blockquote>
-<p><strong>Microdata</strong> is data in a unit record file that provides detailed information about people, households, businesses or other types of records - Source: 1406.0.55.003 - Responsible Use of ABS Microdata, User Guide (<a href="https://www.abs.gov.au/ausstats/abs@.nsf/mf/1406.0.55.003" class="external-link uri">https://www.abs.gov.au/ausstats/abs@.nsf/mf/1406.0.55.003</a>)</p>
+<p><strong>Microdata</strong> is data in a unit record file that
+provides detailed information about people, households, businesses or
+other types of records - Source: 1406.0.55.003 - Responsible Use of ABS
+Microdata, User Guide (<a href="https://www.abs.gov.au/ausstats/abs@.nsf/mf/1406.0.55.003" class="external-link uri">https://www.abs.gov.au/ausstats/abs@.nsf/mf/1406.0.55.003</a>)</p>
 </blockquote>
 <ol style="list-style-type: decimal">
 <li><p>Go to <a href="https://www.abs.gov.au/websitedbs/D3310114.nsf/home/MicrodataDownload" class="external-link uri">https://www.abs.gov.au/websitedbs/D3310114.nsf/home/MicrodataDownload</a></p></li>
 <li>
-<p>Click on the ‘Log in’ button just to the right of the sidebar, as shown in the screenshot below.</p>
+<p>Click on the ‘Log in’ button just to the right of the sidebar, as
+shown in the screenshot below.</p>
 <p><img src="../reference/figures/microdata-1.png"></p>
 </li>
 <li>
-<p>Once you have successfully log in, find the entry with the title ‘Census of Population and Household, 2016’ and proceed to download the CSV version of the microdata. In the picture below, it is the yellow button of the first row.</p>
+<p>Once you have successfully log in, find the entry with the title
+‘Census of Population and Household, 2016’ and proceed to download the
+CSV version of the microdata. In the picture below, it is the yellow
+button of the first row.</p>
 <p><img src="../reference/figures/microdata-2.png"></p>
 </li>
 <li>
-<p>Save the file in a location you can easily find, or better yet, in your Rproj folder, then extract the file. The folder should contain 3 files.</p>
+<p>Save the file in a location you can easily find, or better yet,
+in your Rproj folder, then extract the file. The folder should contain 3
+files.</p>
 <p><img src="../reference/figures/microdata-3.png"></p>
 </li>
 </ol>
@@ -161,51 +186,102 @@
 <blockquote>
 <p><strong>Control total</strong> is data in a tabulated format.</p>
 </blockquote>
-<p>ABS provides several datasets through their data portals, one of which is the <a href="https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml" class="external-link">ABS Census TableBuilder</a>. TableBuilder is a web interface that allows users to create cross-tabulations of census survey data in different aggregations, across different geographical boundaries, and categories. Check with your university librarian to see if your university is subscribed to this service.</p>
-<p>Here are the steps to create and download a control total table from TableBuilder:</p>
+<p>ABS provides several datasets through their data portals, one of
+which is the <a href="https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml" class="external-link">ABS
+Census TableBuilder</a>. TableBuilder is a web interface that allows
+users to create cross-tabulations of census survey data in different
+aggregations, across different geographical boundaries, and categories.
+Check with your university librarian to see if your university is
+subscribed to this service.</p>
+<p>Here are the steps to create and download a control total table from
+TableBuilder:</p>
 <ol style="list-style-type: decimal">
 <li>
-<p>Go to <a href="https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml" class="external-link uri">https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml</a> and log in with a valid credential.</p>
+<p>Go to <a href="https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml" class="external-link uri">https://auth.censusdata.abs.gov.au/webapi/jsf/login.xhtml</a>
+and log in with a valid credential.</p>
 <p><img src="../reference/figures/tablebuilder-1.png"></p>
 </li>
-<li><p>Read the conditions of use and click ‘Accept conditions of use’ if you agree.</p></li>
+<li><p>Read the conditions of use and click ‘Accept conditions of use’
+if you agree.</p></li>
 <li>
-<p>Navigate to ‘Catalogue’ -&gt; ‘2016 Census of Population and Housing’ -&gt; ‘Census TableBuilder Pro’.</p>
+<p>Navigate to ‘Catalogue’ -&gt; ‘2016 Census of Population and
+Housing’ -&gt; ‘Census TableBuilder Pro’.</p>
 <p><img src="../reference/figures/tablebuilder-2.png"></p>
 </li>
-<li><p>Create the person control totals using 2016 Census data. Double-click ‘2016 Census - Counting Persons, Place of Usual Residence (MB)’.</p></li>
+<li><p>Create the person control totals using 2016 Census data.
+Double-click ‘2016 Census - Counting Persons, Place of Usual Residence
+(MB)’.</p></li>
 <li>
-<p>On the side bar menu we need to first select the geographical area that we will create a population for. Open (do not click on the tick mark of the entry) ‘Geographical Area (Usual Residence)’ -&gt; ‘Geographical Areas from Mesh Block (MBs)’ -&gt; ‘MB by Main Statistical Area Structure (MAIN ASGS) (UR)’ -&gt; ‘New South Wales’ -&gt; ‘Sydney - Eastern Suburbs’ -&gt; ‘Eastern Suburbs - South’ -&gt; ‘Randwick North’. Tick the box of ‘Randwick North’ and add to the table as a ‘Wafer’.</p>
+<p>On the side bar menu we need to first select the geographical
+area that we will create a population for. Open (do not click on the
+tick mark of the entry) ‘Geographical Area (Usual Residence)’ -&gt;
+‘Geographical Areas from Mesh Block (MBs)’ -&gt; ‘MB by Main Statistical
+Area Structure (MAIN ASGS) (UR)’ -&gt; ‘New South Wales’ -&gt; ‘Sydney -
+Eastern Suburbs’ -&gt; ‘Eastern Suburbs - South’ -&gt; ‘Randwick North’.
+Tick the box of ‘Randwick North’ and add to the table as a ‘Wafer’.</p>
 <p><img src="../reference/figures/tablebuilder-4.png"></p>
 </li>
-<li><p>Click on the ‘c’ button in grey color on the same line as ‘x SA2 (UR)’, once clicked it will turn blue and the area name will be replaced with its area code. This is important for the population synthesiser to sample records from microdata that matches the area code of the control total we are about to create in this step.<br></p></li>
-<li><p>Use the sidebar to select all entries under ‘SEXP sex’. Navigate to ‘Selected Person Characteristic’ -&gt; ‘SEXP Sex’ -&gt; and tick both ‘Male’ and ‘Female’ entries. Then add to the table as rows by clicking the ‘Row’ button.</p></li>
+<li><p>Click on the ‘c’ button in grey color on the same line as ‘x SA2
+(UR)’, once clicked it will turn blue and the area name will be replaced
+with its area code. This is important for the population synthesiser to
+sample records from microdata that matches the area code of the control
+total we are about to create in this step.<br></p></li>
+<li><p>Use the sidebar to select all entries under ‘SEXP sex’. Navigate
+to ‘Selected Person Characteristic’ -&gt; ‘SEXP Sex’ -&gt; and tick both
+‘Male’ and ‘Female’ entries. Then add to the table as rows by clicking
+the ‘Row’ button.</p></li>
 <li>
-<p>Do the same for ‘MSTP marital status’. Make sure to tick on all the categories and add as rows. If you have done everything correctly up to this point your table should look like the one below.</p>
+<p>Do the same for ‘MSTP marital status’. Make sure to tick on all
+the categories and add as rows. If you have done everything correctly up
+to this point your table should look like the one below.</p>
 <p><img src="../reference/figures/tablebuilder-5.png"></p>
 </li>
 <li>
-<p>Look on the top right of the screen and select ‘CSV String Value’ from the ‘Download Table’ drop down option, then click ‘Go’ to download the table as a CSV file.</p>
+<p>Look on the top right of the screen and select ‘CSV String Value’
+from the ‘Download Table’ drop down option, then click ‘Go’ to download
+the table as a CSV file.</p>
 <p><img src="../reference/figures/tablebuilder-6.png"></p>
 </li>
 <li>
-<p>Remove both ‘SEXP’ and ‘MSTP’ from the table by dragging their headers into the ‘Trash’ icon.</p>
+<p>Remove both ‘SEXP’ and ‘MSTP’ from the table by dragging their
+headers into the ‘Trash’ icon.</p>
 <p><img src="../reference/figures/tablebuilder-7.png"></p>
 </li>
 <li>
-<p>Create another table with only ‘Occp Occupation’ on it. Navigate to ‘Employment, Income and Unpaid Work’ -&gt; ‘OCCP Occupation’ and select all the 11 entries in the first level and add to the table as rows and download it.</p>
+<p>Create another table with only ‘Occp Occupation’ on it. Navigate
+to ‘Employment, Income and Unpaid Work’ -&gt; ‘OCCP Occupation’ and
+select all the 11 entries in the first level and add to the table as
+rows and download it.</p>
 <p><img src="../reference/figures/tablebuilder-8.png"></p>
 </li>
 <li>
-<p>If you reach this point, you should now have two person control tables. Let’s proceed to create and download another household control table. Click on ‘Datasets’ to go back to the main menu to select a new dataset. Select ‘Catalogue’-&gt; ‘2016 Census of Population and Housing’ -&gt; ‘Census TableBuilder Pro’ -&gt; ‘2016 Census - Counting Dwellings, Place of Enumeration (MB)’.</p>
+<p>If you reach this point, you should now have two person control
+tables. Let’s proceed to create and download another household control
+table. Click on ‘Datasets’ to go back to the main menu to select a new
+dataset. Select ‘Catalogue’-&gt; ‘2016 Census of Population and Housing’
+-&gt; ‘Census TableBuilder Pro’ -&gt; ‘2016 Census - Counting Dwellings,
+Place of Enumeration (MB)’.</p>
 <p><img src="../reference/figures/tablebuilder-9.png"></p>
 </li>
 <li>
-<p>Select the same geographical area. Open ‘Geographical Area (Enumeration)’ -&gt; ‘Geographical Areas from Mesh Block (MBs)’ -&gt; ‘MB by Main Statistical Area Structure (MAIN ASGS) (UR)’ -&gt; ‘New South Wales’ -&gt; ‘Sydney - Eastern Suburbs’ -&gt; ‘Eastern Suburbs - South’ -&gt; ‘Randwick North’. Tick the box of ‘Randwick North’ and add to the table as a ‘Wafer’. Also make sure that area name is switched to area code by</p>
+<p>Select the same geographical area. Open ‘Geographical Area
+(Enumeration)’ -&gt; ‘Geographical Areas from Mesh Block (MBs)’ -&gt;
+‘MB by Main Statistical Area Structure (MAIN ASGS) (UR)’ -&gt; ‘New
+South Wales’ -&gt; ‘Sydney - Eastern Suburbs’ -&gt; ‘Eastern Suburbs -
+South’ -&gt; ‘Randwick North’. Tick the box of ‘Randwick North’ and add
+to the table as a ‘Wafer’. Also make sure that area name is switched to
+area code by</p>
 <p><img src="../reference/figures/tablebuilder-10.png"></p>
 </li>
 <li>
-<p>‘Selected Dwelling and Household Characteristics’ -&gt; ‘NPRD Number of Person Usually Resident in Dwelling’. Tick all entires except ‘Seven persons’ and ‘Eight or more persons’. The reason for this is the microdata that we just downloaded doesn’t have households that are larger than 6 usual residents to avoid those people from being indentified from their data. There are ways to retify this but it is beyond our goal for this example, which is to provide a simple example.</p>
+<p>‘Selected Dwelling and Household Characteristics’ -&gt; ‘NPRD
+Number of Person Usually Resident in Dwelling’. Tick all entires except
+‘Seven persons’ and ‘Eight or more persons’. The reason for this is the
+microdata that we just downloaded doesn’t have households that are
+larger than 6 usual residents to avoid those people from being
+indentified from their data. There are ways to retify this but it is
+beyond our goal for this example, which is to provide a simple
+example.</p>
 <p><img src="../reference/figures/tablebuilder-10.png"></p>
 </li>
 <li><p>Download the table as a ‘CSV String Value’ file.</p></li>
@@ -214,7 +290,9 @@
 <div class="section level2">
 <h2 id="next-step">Next step<a class="anchor" aria-label="anchor" href="#next-step"></a>
 </h2>
-<p>Now that we have the microdata and control tables, we can proceed to the next step, which is to create a synthetic population. Please proceed to the <code><a href="../articles/get-started.html">vignette("get-started")</a></code> vignette.</p>
+<p>Now that we have the microdata and control tables, we can proceed to
+the next step, which is to create a synthetic population. Please proceed
+to the <code><a href="../articles/get-started.html">vignette("get-started")</a></code> vignette.</p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
     </nav></aside>
