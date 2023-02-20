@@ -1,0 +1,36 @@
+name: Run the workflow
+
+on:
+  push:
+    branches: [main, master, atrc]
+  pull_request:
+    branches: [main, master, atrc]
+
+jobs:
+  build-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Build Docker image
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: false
+          tags: latest
+          labels: popsyn
+
+      - name: Run workflow
+        run: ./run_workflow.sh
+
+      - name: Save workflow results
+        if: always()
+        uses: actions/upload-artifact@v3
+        with:
+          name: workflow-results
+          path: tmp/*
