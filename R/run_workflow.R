@@ -60,10 +60,14 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     read.csv()
 
   cli::cli_progress_step("Checking the control files.")
-  p_ctrls <- checkmate::assert_file_exists(config$inputs$PERSONS_CONTROL$path) %>%
-    purrr::map(~ read.csv(.x))
-  h_ctrls <- checkmate::assert_file_exists(config$inputs$HOUSEHOLDS_CONTROL$path) %>%
-    purrr::map(~ read.csv(.x))
+  p_ctrls <- purrr::map(
+    .x = config$inputs$HOUSEHOLDS_CONTROL$value, 
+    .f = ~ checkmate::assert_file_exists(.x) %>% data.table::fread()
+  )
+  h_ctrls <- purrr::map(
+    .x = config$inputs$HOUSEHOLDS_CONTROL$value,
+    .f = ~ checkmate::assert_file_exists(.x) %>% data.table::fread()
+  )
 
   cli::cli_progress_step("Creating a fitting problem.")
   fitting_problem <- ml_problem(
