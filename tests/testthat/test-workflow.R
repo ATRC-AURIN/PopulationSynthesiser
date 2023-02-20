@@ -1,4 +1,5 @@
 test_that("run_workflow()", {
+  warning(getwd())
   results <- run_workflow(here::here("atrc_workflow/test_parameters.yaml"))
   checkmate::expect_list(
     results,
