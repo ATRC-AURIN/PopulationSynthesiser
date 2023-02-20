@@ -4,7 +4,6 @@ inst/doc
 .Rprofile
 README_cache
 ^scripts$
-outputs
 .DS_Store
 README_files
 doc
