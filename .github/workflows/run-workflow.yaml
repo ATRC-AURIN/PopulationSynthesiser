@@ -2,9 +2,9 @@ name: Run the workflow
 
 on:
   push:
-    branches: [main, master, atrc]
+    branches: [main, master]
   pull_request:
-    branches: [main, master, atrc]
+    branches: [main, master]
 
 jobs:
   build-image:
