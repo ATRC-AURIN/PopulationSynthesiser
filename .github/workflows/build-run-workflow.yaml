@@ -1,4 +1,4 @@
-name: Run the workflow
+name: Build the image and run the workflow.
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [main, master]
 
 jobs:
-  build-image:
+  build-image-and-run-workflow:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -16,9 +16,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+      
+      # - name: Run workflow
+      #   run: ./run_workflow.sh
 
-      - name: Run workflow
-        run: ./run_workflow.sh
+      - name: List files
+        run: ls -lha
 
       - name: Save workflow results
         if: always()
