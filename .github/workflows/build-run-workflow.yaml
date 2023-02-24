@@ -17,15 +17,15 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
       
-      # - name: Run workflow
-      #   run: ./run_workflow.sh
+      - name: Run workflow
+        run: ./run_workflow.sh
 
       - name: List files
-        run: ls -lha
+        run: cd atrc_data/outputs && ls -lha
 
       - name: Save workflow results
         if: always()
         uses: actions/upload-artifact@v3
         with:
           name: workflow-results
-          path: /atrc_data/outputs/*
+          path: atrc_data/outputs/*
