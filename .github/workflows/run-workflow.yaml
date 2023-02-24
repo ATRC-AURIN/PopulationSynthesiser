@@ -17,14 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Build Docker image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: false
-          tags: latest
-          labels: popsyn
-
       - name: Run workflow
         run: ./run_workflow.sh
 
