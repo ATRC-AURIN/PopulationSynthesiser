@@ -5,8 +5,8 @@ inputs:
   PERSONS_CONTROL:
     type: multiple_paths
     value: 
-      - atrc_data/inputs/persons-control1.csv
-      - atrc_data/inputs/persons-control2.csv
+      - /atrc_data/inputs/persons-control1.csv
+      - /atrc_data/inputs/persons-control2.csv
   HOUSEHOLDS_CONTROL:
     type: multiple_paths
     value: 
