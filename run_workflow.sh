@@ -2,7 +2,6 @@
 
 # Build the container image.
 docker build \
-    --platform linux/amd64 \
     --progress plain \
     -t popsyn .
 
