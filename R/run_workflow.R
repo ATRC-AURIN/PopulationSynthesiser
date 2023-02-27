@@ -97,8 +97,6 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
   checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$value))
   write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$value)
 
-  browser()
-
   cli::cli_progress_step("Returning the results.")
   invisible(list(
     fitted_problem = fitted_problem,
