@@ -1,5 +1,7 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# PopulationSynthesiser 0.2.3 (2023-02-27)
+
 # PopulationSynthesiser 0.2.2.9001 (2023-02-11)
 
 - Updated README.
