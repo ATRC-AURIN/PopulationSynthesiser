@@ -41,6 +41,11 @@ inputs:
     type: value
     value: "trs"
 outputs:
-  SYNTHETIC_POPULATION:
+  OUTPUT_DIRECTORY:
+    description: The path where the output files will be saved.
     type: path
-    value: atrc_data/outputs/synthetic_population.csv
+    value: atrc_data/outputs
+  SYNTHETIC_POPULATION_FILENAME:
+    description: The path where the synthetic population will be saved as.
+    type: csv
+    value: synthetic_population.csv

@@ -81,7 +81,7 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
 
   cli::cli_progress_step("Checking the control files.")
   p_ctrls <- purrr::map(
-    .x = config$inputs$PERSONS_CONTROL$value, 
+    .x = config$inputs$PERSONS_CONTROL$value,
     .f = ~ checkmate::assert_file_exists(.x) %>% data.table::fread()
   )
   h_ctrls <- purrr::map(
@@ -113,9 +113,14 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     algorithm = config$inputs$ML_REPLICATE_ALGORITHM$value
   )
 
-  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {config$outputs$SYNTHETIC_POPULATION$value}}.")
-  checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$value))
-  write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$value)
+  output_file <-
+    fs::path(
+      config$outputs$OUTPUT_DIRECTORY$value,
+      config$outputs$SYNTHETIC_POPULATION_FILENAME$value
+    )
+  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {output_file}}.")
+  checkmate::assert_directory_exists(dirname(config$outputs$OUTPUT_DIRECTORY$value))
+  write.csv(synthetic_population, output_file)
 
   cli::cli_progress_step("Returning the results.")
   invisible(list(
