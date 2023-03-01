@@ -26,19 +26,19 @@ Here is the expected format of a config file.
   REFERENCE_SAMPLE:
     description: The reference sample to use for the synthetic population.
     type: path
-    value: /atrc_data/inputs/reference_sample.csv
+    path: atrc_data/inputs/reference_sample.csv
   PERSONS_CONTROL:
     description: "The person-level control files."
     type: multiple_paths
-    value: 
-      - /atrc_data/inputs/persons-control1.csv
-      - /atrc_data/inputs/persons-control2.csv
+    path:
+      - atrc_data/inputs/persons-control1.csv
+      - atrc_data/inputs/persons-control2.csv
   HOUSEHOLDS_CONTROL:
     description: "The household-level control files."
     type: multiple_paths
-    value: 
-      - /atrc_data/inputs/households-control1.csv
-      - /atrc_data/inputs/households-control2.csv
+    path:
+      - atrc_data/inputs/households-control1.csv
+      - atrc_data/inputs/households-control2.csv
   GROUP_ID:
     description: The group ID column of the reference sample.
     type: value
@@ -68,10 +68,10 @@ outputs:
   OUTPUT_DIRECTORY:
     description: The path where the output files will be saved.
     type: path
-    value: /atrc_data/outputs
+    path: atrc_data/outputs
   SYNTHETIC_POPULATION_FILENAME:
     description: The path where the synthetic population will be saved as.
-    type: csv
+    type: string
     value: synthetic_population.csv
 }\if{html}{\out{</div>}}
 }
