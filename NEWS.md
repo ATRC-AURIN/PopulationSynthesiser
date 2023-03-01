@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# PopulationSynthesiser 0.2.6 (2023-03-01)
+
+- Changed the schema of the config file. 
+
+
 # PopulationSynthesiser 0.2.5 (2023-03-01)
 
 - In `run_workflow()`'s config, when the type of a parameter is a path then its value is stored `path`, previosly this was stored as `value`.
