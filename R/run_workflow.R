@@ -113,14 +113,9 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     algorithm = config$inputs$ML_REPLICATE_ALGORITHM$value
   )
 
-  output_file <-
-    fs::path(
-      config$outputs$OUTPUT_DIRECTORY$path,
-      config$outputs$SYNTHETIC_POPULATION_FILENAME$value
-    )
-  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {output_file}}.")
-  checkmate::assert_directory_exists(dirname(config$outputs$OUTPUT_DIRECTORY$path))
-  write.csv(synthetic_population, output_file)
+  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {config$outputs$SYNTHETIC_POPULATION$path}}.")
+  checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$path))
+  write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$path)
 
   cli::cli_progress_step("Returning the results.")
   invisible(list(
