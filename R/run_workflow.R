@@ -5,65 +5,11 @@
 #' replicating algorithms can also be selected in the config file.
 #'
 #' @param config_path path to an ATRC workflow config file.
-#'  See the Details section below for the expected format.
+#'  See the expected format at <https://github.com/ATRC-AURIN/PopulationSynthesiser/blob/main/atrc_workflow/parameters.yaml>.
 #' @return a list of `mlfit`'s fitted problem and a `data.frame`
 #'  of the resulting synthetic population.
 #' @importFrom yaml read_yaml
 #' @importFrom mlfit ml_problem ml_fit ml_replicate
-#'
-#' @details
-#'
-#' Here is the expected format of a config file.
-#'
-#' ```yaml
-#' inputs:
-#'   REFERENCE_SAMPLE:
-#'     description: The reference sample to use for the synthetic population.
-#'     type: path
-#'     path: atrc_data/inputs/reference_sample.csv
-#'   PERSONS_CONTROL:
-#'     description: "The person-level control files."
-#'     type: multiple_paths
-#'     path:
-#'       - atrc_data/inputs/persons-control1.csv
-#'       - atrc_data/inputs/persons-control2.csv
-#'   HOUSEHOLDS_CONTROL:
-#'     description: "The household-level control files."
-#'     type: multiple_paths
-#'     path:
-#'       - atrc_data/inputs/households-control1.csv
-#'       - atrc_data/inputs/households-control2.csv
-#'   GROUP_ID:
-#'     description: The group ID column of the reference sample.
-#'     type: value
-#'     value: "hhid"
-#'   INDIVIDUAL_ID:
-#'     description: The individual ID column of the reference sample.
-#'     type: value
-#'     value: "persid"
-#'   COUNT:
-#'     description: |
-#'       Name of the control total column in control tables.
-#'     type: value
-#'     value: "n"
-#'   ML_FIT_ALGORITHM:
-#'     description: |
-#'       The algorithm to use for fitting the synthetic population. 
-#'       See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_fit.html.
-#'     type: value
-#'     value: "ipu"
-#'   ML_REPLICATE_ALGORITHM:
-#'     description: |
-#'       The algorithm to use for replicating the synthetic population.
-#'       See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_replicate.html.
-#'     type: value
-#'     value: "trs"
-#' outputs:
-#'   SYNTHETIC_POPULATION:
-#'     description: Path where synthetic population CSV file will be saved.
-#'     type: csv
-#'     path: /atrc_data/outputs/synthetic_population.csv
-#' ```
 #'
 #' @export
 run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
@@ -109,9 +55,17 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     algorithm = config$inputs$ML_REPLICATE_ALGORITHM$value
   )
 
-  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {config$outputs$SYNTHETIC_POPULATION$path}}.")
-  checkmate::assert_directory_exists(dirname(config$outputs$SYNTHETIC_POPULATION$path))
-  write.csv(synthetic_population, config$outputs$SYNTHETIC_POPULATION$path)
+  outfile <- fs::path(
+    config$inputs$OUTPUT_DIRECTORY$value,
+    config$inputs$SYNTHETIC_POPULATION_FILENAME$value
+  )
+
+  print(config)
+  print(outfile)
+
+  cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {outfile}}.")
+  checkmate::assert_directory_exists(dirname(outfile))
+  write.csv(synthetic_population, outfile)
 
   cli::cli_progress_step("Returning the results.")
   invisible(list(

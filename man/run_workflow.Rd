@@ -8,7 +8,7 @@ run_workflow(config_path = "/atrc_data/parameters.yaml")
 }
 \arguments{
 \item{config_path}{path to an ATRC workflow config file.
-See the Details section below for the expected format.}
+See the expected format at \url{https://github.com/ATRC-AURIN/PopulationSynthesiser/blob/main/atrc_workflow/parameters.yaml}.}
 }
 \value{
 a list of \code{mlfit}'s fitted problem and a \code{data.frame}
@@ -18,56 +18,4 @@ of the resulting synthetic population.
 This workflow creates a synthetic population from a reference sample
 and control data as specified in the input config file. The fitting and
 replicating algorithms can also be selected in the config file.
-}
-\details{
-Here is the expected format of a config file.
-
-\if{html}{\out{<div class="sourceCode yaml">}}\preformatted{inputs:
-  REFERENCE_SAMPLE:
-    description: The reference sample to use for the synthetic population.
-    type: path
-    path: atrc_data/inputs/reference_sample.csv
-  PERSONS_CONTROL:
-    description: "The person-level control files."
-    type: multiple_paths
-    path:
-      - atrc_data/inputs/persons-control1.csv
-      - atrc_data/inputs/persons-control2.csv
-  HOUSEHOLDS_CONTROL:
-    description: "The household-level control files."
-    type: multiple_paths
-    path:
-      - atrc_data/inputs/households-control1.csv
-      - atrc_data/inputs/households-control2.csv
-  GROUP_ID:
-    description: The group ID column of the reference sample.
-    type: value
-    value: "hhid"
-  INDIVIDUAL_ID:
-    description: The individual ID column of the reference sample.
-    type: value
-    value: "persid"
-  COUNT:
-    description: |
-      Name of the control total column in control tables.
-    type: value
-    value: "n"
-  ML_FIT_ALGORITHM:
-    description: |
-      The algorithm to use for fitting the synthetic population. 
-      See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_fit.html.
-    type: value
-    value: "ipu"
-  ML_REPLICATE_ALGORITHM:
-    description: |
-      The algorithm to use for replicating the synthetic population.
-      See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_replicate.html.
-    type: value
-    value: "trs"
-outputs:
-  SYNTHETIC_POPULATION:
-    description: Path where synthetic population CSV file will be saved.
-    type: csv
-    path: /atrc_data/outputs/synthetic_population.csv
-}\if{html}{\out{</div>}}
 }

@@ -40,8 +40,16 @@ inputs:
       See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_replicate.html.
     type: value
     value: "trs"
+  OUTPUT_DIRECTORY:
+    description: Path to an output directory.
+    type: value
+    value: atrc_data/outputs
+  SYNTHETIC_POPULATION_FILENAME:
+    description: Name of the synthetic population CSV file.
+    type: value
+    value: synthetic_population.csv
 outputs:
   SYNTHETIC_POPULATION:
     description: Path where synthetic population CSV file will be saved.
     type: string
-    path: atrc_data/outputs/synthetic_population.csv
+    path: synthetic_population.csv
