@@ -65,13 +65,9 @@ Here is the expected format of a config file.
     type: value
     value: "trs"
 outputs:
-  OUTPUT_DIRECTORY:
-    description: The path where the output files will be saved.
-    type: path
-    path: atrc_data/outputs
-  SYNTHETIC_POPULATION_FILENAME:
-    description: The path where the synthetic population will be saved as.
-    type: string
-    value: synthetic_population.csv
+  SYNTHETIC_POPULATION:
+    description: Path where synthetic population CSV file will be saved.
+    type: csv
+    path: /atrc_data/outputs/synthetic_population.csv
 }\if{html}{\out{</div>}}
 }
