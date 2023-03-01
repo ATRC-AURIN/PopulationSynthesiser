@@ -5,6 +5,7 @@ on:
     types: [published]
   push:
     branches: [try-publish]
+  workflow_dispatch:
 
 env:
   REGISTRY: dockeratrc.aurin.org.au
