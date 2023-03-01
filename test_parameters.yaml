@@ -1,0 +1,33 @@
+inputs:
+  REFERENCE_SAMPLE:
+    type: path
+    value: /atrc_data/inputs/reference_sample.csv
+  PERSONS_CONTROL:
+    type: multiple_paths
+    value: 
+      - /atrc_data/inputs/persons-control1.csv
+      - /atrc_data/inputs/persons-control2.csv
+  HOUSEHOLDS_CONTROL:
+    type: multiple_paths
+    value: 
+      - /atrc_data/inputs/households-control1.csv
+      - /atrc_data/inputs/households-control2.csv
+  GROUP_ID:
+    type: value
+    value: "hhid"
+  INDIVIDUAL_ID:
+    type: value
+    value: "persid"
+  COUNT:
+    type: value
+    value: "n"
+  ML_FIT_ALGORITHM:
+    type: value
+    value: "ipu"
+  ML_REPLICATE_ALGORITHM:
+    type: value
+    value: "trs"
+outputs:
+  SYNTHETIC_POPULATION:
+    type: csv
+    value: /atrc_data/outputs/synthetic_population.csv

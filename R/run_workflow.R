@@ -115,8 +115,8 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
 
   output_file <-
     fs::path(
-      config$outputs$OUTPUT_DIRECTORY$path,
-      config$outputs$SYNTHETIC_POPULATION_FILENAME$value
+      config$inputs$OUTPUT_DIRECTORY$value,
+      config$inputs$SYNTHETIC_POPULATION_FILENAME$value
     )
   cli::cli_progress_step("Writing the synthetic population to a CSV file: : {.path {output_file}}.")
   checkmate::assert_directory_exists(dirname(config$outputs$OUTPUT_DIRECTORY$path))

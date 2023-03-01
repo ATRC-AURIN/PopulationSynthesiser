@@ -6,13 +6,13 @@ inputs:
   PERSONS_CONTROL:
     description: "The person-level control files."
     type: multiple_paths
-    path: 
+    path:
       - /atrc_data/inputs/persons-control1.csv
       - /atrc_data/inputs/persons-control2.csv
   HOUSEHOLDS_CONTROL:
     description: "The household-level control files."
     type: multiple_paths
-    path: 
+    path:
       - /atrc_data/inputs/households-control1.csv
       - /atrc_data/inputs/households-control2.csv
   GROUP_ID:
@@ -40,11 +40,11 @@ inputs:
       See the available algorithms at https://mlfit.github.io/mlfit/reference/ml_replicate.html.
     type: value
     value: "trs"
-outputs:
   OUTPUT_DIRECTORY:
     description: The path where the output files will be saved.
-    type: path
-    path: /atrc_data/outputs
+    type: value
+    value: /atrc_data/outputs
+outputs:
   SYNTHETIC_POPULATION_FILENAME:
     description: The path where the synthetic population will be saved as.
     type: csv
