@@ -2,19 +2,19 @@ inputs:
   REFERENCE_SAMPLE:
     description: The reference sample to use for the synthetic population.
     type: path
-    path: /atrc_data/inputs/reference_sample.csv
+    path: ../../atrc_data/inputs/reference_sample_single_zone.csv
   PERSONS_CONTROL:
     description: "The person-level control files."
     type: multiple_paths
     path: 
-      - /atrc_data/inputs/persons-control1.csv
-      - /atrc_data/inputs/persons-control2.csv
+      - ../../atrc_data/inputs/persons-control1_single_zone.csv
+      - ../../atrc_data/inputs/persons-control2_single_zone.csv
   HOUSEHOLDS_CONTROL:
     description: "The household-level control files."
     type: multiple_paths
     path: 
-      - /atrc_data/inputs/households-control1.csv
-      - /atrc_data/inputs/households-control2.csv
+      - ../../atrc_data/inputs/households-control1_single_zone.csv
+      - ../../atrc_data/inputs/households-control2_single_zone.csv
   GROUP_ID:
     description: The group ID column of the reference sample.
     type: value
@@ -31,15 +31,7 @@ inputs:
       used in the reference sample and `ZONE` is expected to contain a smaller
       zoning level used in the control tables. 
     type: value
-    value: "/atrc_data/inputs/geo-hierarchy.csv"
-  ZONE:
-    description: GEO_HIERARCHY's zone column.
-    type: value
-    value: "ZONE"
-  REGION:
-    description: GEO_HIERARCHY's region column.
-    type: value
-    value: "REGION"
+    value: ""
   COUNT:
     description: |
       Name of the control total column in control tables.
@@ -60,13 +52,13 @@ inputs:
   OUTPUT_DIRECTORY:
     description: Path to an output directory.
     type: value
-    value: /atrc_data/outputs
+    value: ../../atrc_data/outputs
   SYNTHETIC_POPULATION_FILENAME:
     description: Name of the synthetic population CSV file.
     type: value
     value: synthetic_population.csv
 outputs:
   SYNTHETIC_POPULATION:
-    description: Synthetic population.
-    type: csv
+    description: Path where synthetic population CSV file will be saved.
+    type: string
     path: synthetic_population.csv

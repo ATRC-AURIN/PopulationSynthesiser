@@ -10,6 +10,7 @@ cp -f atrc_workflow/parameters.yaml atrc_data/parameters.yaml
 
 # Run the container.
 docker run \
+    --rm \
     --mount type=bind,source="$(pwd)"/atrc_data,target=/atrc_data \
     popsyn
     

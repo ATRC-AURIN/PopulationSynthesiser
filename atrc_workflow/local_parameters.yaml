@@ -23,6 +23,23 @@ inputs:
     description: The individual ID column of the reference sample.
     type: value
     value: "persid"
+  GEO_HIERARCHY:
+    description: |
+      A CSV file that contains geographical hierarchy between the control
+      tables and the reference sample. The table should contains two columns:
+      `REGION` and `ZONE`. `REGION` is expected to contain a larger zoning level
+      used in the reference sample and `ZONE` is expected to contain a smaller
+      zoning level used in the control tables. 
+    type: value
+    value: atrc_data/inputs/geo-hierarchy.csv
+  ZONE:
+    description: GEO_HIERARCHY's zone column.
+    type: value
+    value: "ZONE"
+  REGION:
+    description: GEO_HIERARCHY's region column.
+    type: value
+    value: "REGION"
   COUNT:
     description: |
       Name of the control total column in control tables.
