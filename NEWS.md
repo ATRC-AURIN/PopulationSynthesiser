@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# PopulationSynthesiser 0.3.0 (2023-04-25)
+
+- `run_workflow()` now allows multiple zone fitting. See the documentation for more details.
+
+
 # PopulationSynthesiser 0.2.6 (2023-03-01)
 
 - Changed the schema of the config file. 
