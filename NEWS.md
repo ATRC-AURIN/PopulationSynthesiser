@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# PopulationSynthesiser 0.4.0 (2023-04-25)
+
+- fix: `GEO_HIERARCHY` in `run_workflow()` should be of type `path` not `value`.
+
+
 # PopulationSynthesiser 0.3.0 (2023-04-25)
 
 - `run_workflow()` now allows multiple zone fitting. See the documentation for more details.
