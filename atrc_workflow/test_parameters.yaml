@@ -30,8 +30,8 @@ inputs:
       `REGION` and `ZONE`. `REGION` is expected to contain a larger zoning level
       used in the reference sample and `ZONE` is expected to contain a smaller
       zoning level used in the control tables. 
-    type: value
-    value: ../../atrc_data/inputs/geo-hierarchy.csv
+    type: path
+    path: ../../atrc_data/inputs/geo-hierarchy.csv
   ZONE:
     description: GEO_HIERARCHY's zone column.
     type: value

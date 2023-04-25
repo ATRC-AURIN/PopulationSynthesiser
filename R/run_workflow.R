@@ -31,7 +31,7 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     .f = ~ checkmate::assert_file_exists(.x) %>% data.table::fread()
   )
 
-  if (config$inputs$GEO_HIERARCHY$value == "") {
+  if (config$inputs$GEO_HIERARCHY$path == "") {
     cli::cli_progress_step("Creating a fitting problem.")
     fitting_problem <- ml_problem(
       ref_sample = ref_sample,
@@ -57,7 +57,7 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
     )
   } else {
     cli::cli_progress_step("Creating multi-zone fitting problems based on the given `GEO_HIERARCHY`.")
-    checkmate::assert_file_exists(config$inputs$GEO_HIERARCHY$value, access = "r")
+    checkmate::assert_file_exists(config$inputs$GEO_HIERARCHY$path, access = "r")
     fitting_problem <- ml_problem(
       ref_sample = ref_sample,
       individual_controls = p_ctrls,
@@ -69,7 +69,7 @@ run_workflow <- function(config_path = "/atrc_data/parameters.yaml") {
         region = config$inputs$REGION$value,
         zone = config$inputs$ZONE$value
       ),
-      geo_hierarchy = data.table::fread(config$inputs$GEO_HIERARCHY$value)
+      geo_hierarchy = data.table::fread(config$inputs$GEO_HIERARCHY$path)
     )
 
     cli::cli_progress_step("Fitting the fitting problems.")

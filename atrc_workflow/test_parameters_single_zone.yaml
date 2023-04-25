@@ -30,8 +30,8 @@ inputs:
       `REGION` and `ZONE`. `REGION` is expected to contain a larger zoning level
       used in the reference sample and `ZONE` is expected to contain a smaller
       zoning level used in the control tables. 
-    type: value
-    value: ""
+    type: path
+    path: ""
   COUNT:
     description: |
       Name of the control total column in control tables.
