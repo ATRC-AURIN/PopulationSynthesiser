@@ -23,20 +23,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Log in to the ATRC Private registry
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.REGISTRY }}
-          username: ${{ secrets.HARBOR_USERNAME }}
-          password: ${{ secrets.HARBOR_PASSWORD }}
-
-      - name: Log in to the ATRC Public registry
-        uses: docker/login-action@v2
-        with:
-          registry: ${{ env.PUBLIC_REGISTRY }}
-          username: ${{ secrets.PUBLIC_HARBOR_USERNAME }}
-          password: ${{ secrets.PUBLIC_HARBOR_PASSWORD }}
-
       - name: Extract metadata (tags, labels) for Docker
         id: meta
         uses: docker/metadata-action@v4
@@ -45,10 +31,29 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.PUBLIC_REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and Push Docker Image
+      - name: Build Docker Image
+        run: docker build -t popsyn .
+
+      - name: Log in to the ATRC Private registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ secrets.HARBOR_USERNAME }}
+          password: ${{ secrets.HARBOR_PASSWORD }}
+
+      - name: Push Docker Image to Private Registry
         run: |
-          docker build -t popsyn .
-          docker tag popsyn registry.rc.nectar.org.au/atrc-core/populationsynthesiser
           docker tag popsyn registry.rc.nectar.org.au/atrc-core-private/populationsynthesiser
-          docker push registry.rc.nectar.org.au/atrc-core/populationsynthesiser
           docker push registry.rc.nectar.org.au/atrc-core-private/populationsynthesiser
+
+      - name: Log in to the ATRC Public registry
+        uses: docker/login-action@v2
+        with:
+          registry: ${{ env.PUBLIC_REGISTRY }}
+          username: ${{ secrets.PUBLIC_HARBOR_USERNAME }}
+          password: ${{ secrets.PUBLIC_HARBOR_PASSWORD }}
+
+      - name: Push Docker Image to Public Registry
+        run: |
+          docker tag popsyn registry.rc.nectar.org.au/atrc-core/populationsynthesiser
+          docker push registry.rc.nectar.org.au/atrc-core/populationsynthesiser
