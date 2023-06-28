@@ -45,12 +45,10 @@ jobs:
             ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
             ${{ env.PUBLIC_REGISTRY }}/${{ env.IMAGE_NAME }}
 
-      - name: Build and publish Docker image
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          push: true
-          tags: |
-            ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-            ${{ env.PUBLIC_REGISTRY }}/${{ env.IMAGE_NAME }}
-          labels: ${{ steps.meta.outputs.labels }}
+      - name: Build and Push Docker Image
+        run: |
+          docker build -t popsyn .
+          docker tag popsyn registry.rc.nectar.org.au/atrc-core/populationsynthesiser
+          docker tag popsyn registry.rc.nectar.org.au/atrc-core-private/populationsynthesiser
+          docker push registry.rc.nectar.org.au/atrc-core/populationsynthesiser
+          docker push registry.rc.nectar.org.au/atrc-core-private/populationsynthesiser
